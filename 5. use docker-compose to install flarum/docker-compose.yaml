@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  flarum:
+    image: mondedie/flarum:stable
+    container_name: flarum
+    ports:
+      - 8000:8888
+    env_file:
+      - $PWD/flarum.env
+    volumes:
+      - $PWD/asserts:/flarum/app/public/asserts
+      - $PWD/extensions:/flarum/app/extensions
+      - $PWD/logs:/flarum/app/storage/logs
+      - $PWD/nginx:/etc/nginx/flarum
+    depends_on:
+      - mariadb
+  mariadb:
+    image: mariadb:10.5
+    container_name: mariadb
+    ports:
+      - 13306:13306
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=flarum
+      - MYSQL_USER=flarum
+      - MYSQL_PASSWORD=123456
+    volumes:
+      - $PWD/db:/var/lib/mysql
