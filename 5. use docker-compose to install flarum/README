@@ -8,6 +8,7 @@ docker-compose.yaml ----> /home/flarum
 
 flarum.env- ----> /home/flarum
 
+exec----> docker-compose up 
 
 
 2. get into mariadb  container :
