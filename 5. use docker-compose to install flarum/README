@@ -1,0 +1,18 @@
+
+
+
+
+path :
+
+docker-compose.yaml ----> /home/flarum
+
+flarum.env- ----> /home/flarum
+
+
+
+2. get into mariadb  container :
+
+cd /home/flarum
+
+sudo docker-compose exec maridab /bin/sh
+$ mysql -h mariadb -u root -p
