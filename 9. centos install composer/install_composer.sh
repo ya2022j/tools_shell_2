@@ -48,3 +48,5 @@ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/;
 # 5.验证
 
 composer -v
+composer self-update --2 
+
